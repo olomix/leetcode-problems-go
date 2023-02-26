@@ -15,7 +15,7 @@ func Test_minDistance(t *testing.T) {
 
 // 145185
 // 144892
-func BenchmarkName(b *testing.B) {
+func Benchmark_minDistance(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		cache = make(map[cacheKey]int)
 		require.Equal(b, 3, minDistance("horse", "ros"))
@@ -23,6 +23,17 @@ func BenchmarkName(b *testing.B) {
 		require.Equal(b, 6,
 			minDistance("dinitrophenylhydrazine", "acetylphenylhydrazine"))
 
+	}
+}
+
+// 13254
+func Benchmark_minDistance2(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		cache = make(map[cacheKey]int)
+		require.Equal(b, 3, minDistance2("horse", "ros"))
+		require.Equal(b, 5, minDistance2("intention", "execution"))
+		require.Equal(b, 6,
+			minDistance2("dinitrophenylhydrazine", "acetylphenylhydrazine"))
 	}
 }
 
